@@ -1,3 +1,4 @@
+# Helldivers 2 Loadout Randomizer
 Extremely lowbrow loadout randomizer for Helldivers 2 by Arrowhead studios.
 
 To use:
