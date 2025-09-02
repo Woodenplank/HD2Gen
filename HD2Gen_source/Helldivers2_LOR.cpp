@@ -12,8 +12,8 @@
 //#define strlist std::list<std::string>
 
 struct Warbond{
-    Warbond(std::string s, std::list<std::string> pri, std::list<std::string> sec, std::list<std::string> thr):
-        searchname(s), primaries(pri), secondaries(sec), throwables(thr) {}
+    Warbond(std::string s, std::list<std::string> pri, std::list<std::string> sec, std::list<std::string> thr, std::list<std::string> sup):
+        searchname(s), primaries(pri), secondaries(sec), throwables(thr), supports (sup){}
     Warbond() = default;
 
     friend inline bool operator==(const Warbond&wb, const std::string&s)
@@ -24,89 +24,112 @@ struct Warbond{
     std::list<std::string> primaries={};
     std::list<std::string> secondaries={};
     std::list<std::string> throwables={};
+    std::list<std::string> supports={};
 };
 
 const std::vector<Warbond> Warbonds={
     Warbond("standard",
         {"Liberator","Liberator Penetrator","R-63 Dilligence","R-63CS Dilligence Counter-Sniper","Plas-1 Scorcher","LAS-5 Scythe","SG-8 Punisher","SG-8S Punisher Slugger","SG-225 Breaker","SG-225SP Breaker Spray-and-pray","SMG-37 Defender"},
         {"P-2 Peacemaker","P-19 Redeemer"},
-        {"G-3 Smoke","G-12 High Explosive","G-6 Frag","G-16 Impact"}),
+        {"G-3 Smoke","G-12 High Explosive","G-6 Frag","G-16 Impact"},
+        {"Machine Gun", "Stalwart", "Heavy Machine Gun", "Railgun", "Anti-Material Rifle", "Grenade Launcher",
+        "Flamethrower", "Quasar Cannon", "Laser Cannon", "Arc Thrower", "Expendable Anti-Tank", "Commando",
+        "Autocannon", "Airburst Rocket Launcher", "Spear", "Recoilless Rifle"}),
     Warbond("borderlinejustice",
         {"R-6 Deadeye"},
         {"LAS-58 Talon"},
-        {"TED-63 Dynamite"}),
+        {"TED-63 Dynamite"},
+        {}),
     Warbond("chemicalagents",
         {},
         {"P-11 Stim Pistol"},
-        {"G-4 Gas"}),
+        {"G-4 Gas"},
+        {"Sterilizer"}),
     Warbond("controlgroup",
         {"VG-70 Variable"},
         {},
-        {"G-31 Arc"}),
+        {"G-31 Arc"},
+        {}),
     Warbond("cuttingedge",
         {"ARC-12 Blitzer","SG-8 Punisher Plasma","LAS-16 Sickle"},
         {"Las-7 Dagger"},
-        {"G-23 Stun"}),
+        {"G-23 Stun"},
+        {}),
     Warbond("democraticdetonation",
         {"BR-14 Adjudicator","Exploding Crossbow","R-36 Eruptor"},
         {"GP-31 Grenade Pistol"},
-        {"G-123 Thermite"}),
+        {"G-123 Thermite"},
+        {}),
     Warbond("dustdevils",
         {"AR-2 Coyote"},
         {},
-        {"G7-Pineapple"}),
+        {"G7-Pineapple"},
+        {"S-11 Speargun", "MS-11 Solo Silo", "EAT-700 Expendable Napalm"}),
     Warbond("forceoflaw",
         {"AR-32 Pacifier"},
         {"P-92 Warrant"},
-        {"G-109 Urchin"}),
+        {"G-109 Urchin"},
+        {"De-Escaltor"}),
     Warbond("freedomsflame",
         {"SG-451 Punisher Cookout","FLAM-66 Torcher"},
         {"P-72 Crisper"},
+        {},
         {}),
     Warbond("mastersofceremony",
         {"R-2 Amendment"},
         {"CQC-2 Saber"},
-        {"G-142 Pyrotech"}),
+        {"G-142 Pyrotech"},
+        {"One True Flag"}),
     Warbond("polarpatriots",
         {"AR-61 Tenderizer","Plas-101 Purifier","SMG-72 Pummeler"},
         {"P-113 Verdict"},
-        {"G-13 Incendiary Impact"}),
+        {"G-13 Incendiary Impact"},
+        {}),
     Warbond("servantsoffreedom",
         {"LAS-17 Double-Edge Sickle"},
         {"GP-20 Ultimatum","CQC-5 Combat Hatchet"},
-        {"G-50 Seeker"}),
+        {"G-50 Seeker"},
+        {}),
     Warbond("steeledveterans",
         {"JAR-5 Dominator","SG-225IE Breaker Incendiary","Liberator Concussive"},
         {"P-4 Senator"},
-        {"G-10 Incendiary"}),
+        {"G-10 Incendiary"},
+        {}),
     Warbond("truthenforcers",
         {"SMG-32 Reprimand","SG-20 Halt"},
         {"Plas-15 Loyalist"},
+        {},
         {}),
     Warbond("urbanlegends",
         {},
         {"CQC-30 Stun Baton","CQC-19 Stun Lance"},
+        {},
         {}),
     Warbond("vipercommandos",
         {"Liberator Carbine"},
         {"SG-22 Bushwhacker"},
-        {"K-2 Throwing Knife"}),
+        {"K-2 Throwing Knife"},
+        {}),
     Warbond("supercitizen",
         {"MP-98 Knight"},
+        {},
         {},
         {}),
     Warbond("killzone",
         {"StA-52 Assault Rifle","StA-11 SMG","PLAS-39 Accelerator Rifle"},
         {},
+        {},
         {}),
     Warbond("halo",
         {"MA5C Assault Rifle","M90A Shotgun","M7S SMG"},
         {"M6C/SOCOM Pistol"},
+        {},
         {}),
     Warbond("superstore",
         {},
         {"CQC-5 Combat Hatchet", "CQC-30 Stun Baton", "P-92 Warrant"},
-        {})
+        {},
+        {"StA-X3 W.A.S.P. Launcher"})
 };
 const std::vector<std::string> WarbondsNameList={
     "standard",
@@ -115,6 +138,7 @@ const std::vector<std::string> WarbondsNameList={
     "controlgroup",
     "cuttingedge",
     "democraticdetonation",
+    "dustdevils",
     "forceoflaw",
     "freedomsflame",
     "mastersofceremony",
@@ -234,7 +258,30 @@ std::list<std::string> throwables={
     "G-10 Incendiary",
     "G-6 Frag"
 };
-
+std::list<std::string> supports={
+    "Machine Gun", 
+    "Stalwart", 
+    "Heavy Machine Gun", 
+    "Railgun", 
+    "Anti-Material Rifle", 
+    "Grenade Launcher",
+    "Flamethrower", 
+    "Quasar Cannon", 
+    "Laser Cannon", 
+    "Arc Thrower", 
+    "S-11 Speargun", 
+            /* ---- Expendables ---- */
+    "Expendable Anti-Tank", 
+    "Commando",
+    "EAT-700 Expendable Napalm",
+    "MS-11 Solo Silo", 
+            /* ---- Backpack Loaded ---- */
+    "Autocannon", 
+    "Airburst Rocket Launcher", 
+    "Spear", 
+    "Recoilless Rifle",
+    "StA-X3 W.A.S.P. Launcher"
+};
 
 std::string loadgen(const std::list<std::string> &listing)
 {
@@ -279,13 +326,14 @@ int main(int argc, char **argv)
                     remove(primaries, wb.primaries);
                     remove(secondaries, wb.secondaries);
                     remove(throwables, wb.throwables);
+                    remove(supports, wb.supports);
                 }
             }
         if (debug) std::cout << "Removed unwanted Warbonds from the random pool" << std::endl;
         
         
         std::cout << "Your loadout shall be: " << loadgen(primaries) << ", " << loadgen(secondaries)
-                  << " and " << loadgen(throwables) << "." << std::endl;
+                  << " with " << loadgen(throwables) << " and " << loadgen(supports) << "." << std::endl;
         system("pause");
         return 0;
     }
