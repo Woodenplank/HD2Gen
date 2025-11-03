@@ -10,7 +10,7 @@ Additional arguments may be provided to the .exe file to modify behaviour;
 
     --help (--h); displays a list of commands.
     --list (--ls); displays a list of all Warbonds (to-date)
-    -warbondname; use this to exclude a Warbond (that you don't own, for instance) from future randomizer runs. This list is stored in the HD2_WarBondExclusions.txt text file.
-    +warbondname; (re)include a given Warbond in the randomizer (if you bought something new, or reconsidered). You can also manually remove the line of text from the exclusion file.
+    -warbondname; use this to exclude a Warbond from future randomizer runs.
+    +warbondname; (re)include a given Warbond in the randomizer
 
 Remember not to use spaces when typing in a Warbond name, e.g. "ServantsOfFreedom"
