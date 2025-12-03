@@ -9,7 +9,7 @@
 #include "random_ints.hpp"
 #include "list_extra.hpp"
 
-//#define strlist std::list<std::string>
+// g++ HD2Gen_source\Helldivers2_LOR.cpp HD2Gen_source\list_extra.cpp -o HD2Randomizer.exe
 
 struct Warbond{
     Warbond(std::string s, std::list<std::string> pri, std::list<std::string> sec, std::list<std::string> thr, std::list<std::string> sup):
@@ -85,6 +85,11 @@ const std::vector<Warbond> Warbonds={
         {"P-113 Verdict"},
         {"G-13 Incendiary Impact"},
         {}),
+    Warbond("pythoncommandos",
+        {"AR/GL-21 One-Two"},
+        {},
+        {},
+        {"M-1000 Maxigun", "CQC-9 Defoliation Tool", "AX/FLAM-75 Hotdog"}),
     Warbond("servantsoffreedom",
         {"LAS-17 Double-Edge Sickle"},
         {"GP-20 Ultimatum","CQC-5 Combat Hatchet"},
@@ -126,8 +131,8 @@ const std::vector<Warbond> Warbonds={
         {},
         {}),
     Warbond("superstore",
-        {},
-        {"CQC-5 Combat Hatchet", "CQC-30 Stun Baton", "P-92 Warrant"},
+        {"Double Freedom"},
+        {"CQC-5 Combat Hatchet", "CQC-30 Stun Baton", "P-92 Warrant", "Machete"},
         {},
         {"StA-X3 W.A.S.P. Launcher"})
 };
@@ -226,6 +231,7 @@ std::list<std::string> secondaries={
     "CQC-5 Combat Hatchet",
     "CQC-30 Stun Baton",
     "CQC-19 Stun Lance",
+    "Machete",
 
         /* ---- Special ---- */
     "P-72 Crisper",
@@ -331,10 +337,14 @@ int main(int argc, char **argv)
             }
         if (debug) std::cout << "Removed unwanted Warbonds from the random pool" << std::endl;
         
-        
-        std::cout << "Your loadout shall be: " << loadgen(primaries) << ", " << loadgen(secondaries)
-                  << " with " << loadgen(throwables) << " and " << loadgen(supports) << "." << std::endl;
-        system("pause");
+        char r='r';
+        while (r != 'a')
+        {
+            std::cout << "Your loadout shall be: " << loadgen(primaries) << ", " << loadgen(secondaries)
+                  << " with " << loadgen(throwables) << " and " << loadgen(supports) << ".\n"
+                  << "[R]eroll / [A]ccept " << std::flush;
+            std::cin >> r;
+        }
         return 0;
     }
 
