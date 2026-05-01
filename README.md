@@ -4,7 +4,7 @@ Extremely lowbrow loadout randomizer for Helldivers 2 by Arrowhead studios.
 To use:
 
     Put the HD2Randomizer.exe and HD2_WarBondExclusions.txt file in some folder on your computer.
-    Run the .exe file from the command prompt, and it will generate a random Primary, Secondary, and Throwable weapons setup.
+    Run the .exe file from the command prompt, and it will generate a random Primary, Secondary, Throwable, and Support Weapon setup.
 
 Additional arguments may be provided to the .exe file to modify behaviour;
 
