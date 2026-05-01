@@ -22,8 +22,8 @@ const std::vector<std::string> WarbondsNameList={
     "vipercommandos",
     "redactedregiment",
     "siegebreakers",
-    "entrencheddivision"
-    "exoexperts"
+    "entrencheddivision",
+    "exoexperts",
     "killzone",
     "halo",
     "supercitizen",

@@ -9,7 +9,7 @@
 #include "HD2_lor.hpp"
 #include "HD2_filtering.hpp"
 
-// g++ HD2Gen_source\HD2Randomizer.cpp HD2Gen_source\HD2_lor.cpp HD2Gen_source\HD2_filter.cpp HD2Gen_source\list_extra.cpp -o HD2Randomizer.exe
+// g++ HD2Gen_source\HD2Randomizer.cpp HD2Gen_source\HD2_lor.cpp HD2Gen_source\HD2_filtering.cpp HD2Gen_source\list_extra.cpp -o HD2Randomizer.exe
 
 extern const std::string excludeFileName="HD2_WarbondExclusions.txt";
 int main(int argc, char **argv){
