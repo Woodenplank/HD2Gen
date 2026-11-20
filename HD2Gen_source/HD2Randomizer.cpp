@@ -8,48 +8,29 @@
 #include <stdlib.h>
 #include "HD2_lor.hpp"
 #include "HD2_filtering.hpp"
-
-// g++ HD2Gen_source\HD2Randomizer.cpp HD2Gen_source\HD2_lor.cpp HD2Gen_source\HD2_filtering.cpp HD2Gen_source\list_extra.cpp -o HD2Randomizer.exe
+#include "HD2_textopt.hpp"
 
 extern const std::string excludeFileName="HD2_WarbondExclusions.txt";
 int main(int argc, char **argv){
-
-    if (argc == 1) // standard execution. Generates a random loadout from the available equipment set.
+    if (argc == 1)
     {
         Randomize();
         return 0;
     }   
+        
 
-    // additional arguments supplied...
+    // additional arguments supplied
     std::vector<std::string> all_args;
     all_args.assign(argv + 1, argv + argc);
 
-    /* ---- ---- ---- ---- ---- print information ---- ---- ---- ---- ---- */
     if (argc==2 && (all_args[0]=="--h" or all_args[0]=="--help"))
-    {
-        std::cout << ">Helldivers 2 Loadout Randomizer<"
-                << "\n---------------------------------------------"
-                << "\nAvailable options are:"
-                << "\n\t --help (--h)      ---> Display these messages."
-                << "\n\t --list (--ls)     ---> Prints a list of all warbond names"
-                << "\n\t -warbondname      ---> Excludes a given warbond from the randomizer options (no spaces!)"
-                << "\n\t +warbondname      ---> (re)includes a given warbond from the randomizer options (no spaces!)"
-                << "\n\t [No arguments]    ---> Runs the randomizer."
-                << std::endl;
-    }
+        return help();
     else if (argc==2 && (all_args[0]=="--ls" || all_args[0]=="--list"))
-    {
-        std::cout << "The program recognizes the following Warbond names/synonyms: " << std::endl;
-        for (std::string s : WarbondsNameList)
-            std:: cout << s << "\n";
-        std::cout << std::flush;
-        return 0;
-    }
-
-    /* ---- ---- ---- ---- ---- Warbond filtering ---- ---- ---- ---- ---- */
+        return listopts();
     else
         wbfilter(all_args);
 
-
     return 0;
 }
+// build: 
+// g++ HD2Gen_source\HD2Randomizer.cpp HD2Gen_source\HD2_lor.cpp HD2Gen_source\HD2_filtering.cpp HD2Gen_source\list_extra.cpp HD2Gen_source\HD2_textopt.cpp -o HD2Randomizer.exe

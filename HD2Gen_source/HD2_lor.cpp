@@ -4,7 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
-#include "random_ints.hpp"
+#include <stdint.h>
+#include "randint.hpp"
 #include "HD2_wb.hpp"
 #include "HD2_content.hpp"
 #include "HD2_lor.hpp"
@@ -36,7 +37,7 @@ std::list<std::string> BuildOptions(std::vector<Warbond> bonds, std::vector<std:
 std::string loadgen(const std::list<std::string> &listing)
 {
     std::string output;
-    std::vector<unsigned int> rand_ints;
+    std::vector<uint32_t> rand_ints;
     random_choice(rand_ints, 1, 0, listing.size());
     
     auto it = listing.cbegin();
@@ -66,14 +67,17 @@ int Randomize(){
     std::list<std::string> primaries = BuildOptions(Warbonds, exclude, "p");
     std::list<std::string> secondaries = BuildOptions(Warbonds, exclude, "s");
     std::list<std::string> throwables = BuildOptions(Warbonds, exclude, "t");
-    std::list<std::string> supports = BuildOptions(Warbonds, exclude, "supports");
+    //std::list<std::string> supports = BuildOptions(Warbonds, exclude, "supports");
 
     char r='r';
     while (r != 'a')
     {
-        std::cout << "Your loadout shall be: " << loadgen(primaries) << ", " << loadgen(secondaries)
-                << " with " << loadgen(throwables) << " and " << loadgen(supports) << ".\n"
-                << "[R]eroll / [A]ccept " << std::flush;
+        std::cout << "Your loadout:"
+                << "\n    Primary: "    << loadgen(primaries)
+                << "\n    Secondary: "  << loadgen(secondaries)
+                << "\n    Grenade: "    << loadgen(throwables)
+                //<< "\n    Support: "    << loadgen(supports)
+                << "\n[R]eroll / [A]ccept " << std::flush;
         std::cin >> r;
     }
     return 0;
