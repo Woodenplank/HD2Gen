@@ -2,9 +2,9 @@
 Extremely lowbrow loadout randomizer for Helldivers 2 by Arrowhead studios.
 
 To use:
-
-    Put the HD2Randomizer.exe and HD2_WarBondExclusions.txt file in some folder on your computer.
-    Run the .exe file from the command prompt, and it will generate a random Primary, Secondary, Throwable, and Support Weapon setup.
+* Put the HD2Randomizer.exe and HD2_WarBondExclusions.txt file in some folder on your computer.
+* Run the .exe file from the command prompt, and it will generate a random Primary, Secondary, and Throwable to use.
+    
 
 Additional arguments may be provided to the .exe file to modify behaviour;
 
@@ -13,4 +13,4 @@ Additional arguments may be provided to the .exe file to modify behaviour;
     -warbondname; use this to exclude a Warbond from future randomizer runs.
     +warbondname; (re)include a given Warbond in the randomizer
 
-Remember not to use spaces when typing in a Warbond name, e.g. "ServantsOfFreedom"
+Remember to avoid spaces when typing in a Warbond name, e.g. "ServantsOfFreedom".
